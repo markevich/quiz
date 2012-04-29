@@ -38,6 +38,8 @@ gem 'capistrano'
 gem 'ruby-debug19', :require => 'ruby-debug'
 
 gem "capybara", :group => [:development, :test]
+gem "webrat", :group => [:development, :test]
+
 group :test do
   gem "cucumber-rails", :require => false
   gem "capybara"
