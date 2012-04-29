@@ -3,11 +3,8 @@ describe UserController do
   
 
   describe "before authorization dialog" do
-    before do
-      mock_model(User)
-    end
     context "when user is already authorized" do
-      it "should redirect to index page" do
+      xit "should redirect to victorins index page" do
         User.stub!(:authorized).and_return(true)
       end
     end

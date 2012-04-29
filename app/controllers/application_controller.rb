@@ -1,3 +1,17 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  before_filter :refresh_current_user
+
+  def refresh_current_user
+    @current_user = User.find @session[:current_user_id]
+  end
+
+  def set_current_user user_id
+    @session[:current_user_id] = user_id
+    refresh_current_user
+  end
+
+  def logout!
+    @session[:current_user_id] = nil
+  end
 end
