@@ -14,4 +14,8 @@ class ApplicationController < ActionController::Base
   def logout!
     session[:current_user_id] = nil
   end
+
+  def user_authorized?
+    !@current_user.nil?
+  end
 end

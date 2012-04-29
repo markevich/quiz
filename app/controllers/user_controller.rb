@@ -9,7 +9,8 @@ class UserController < ApplicationController
       raise(IncorrectParameters, 'Неправильный логин или пароль')
     end
   end
-
-  def index
+  
+  def login
+    redirect_to quiz_path if user_authorized?
   end
 end
