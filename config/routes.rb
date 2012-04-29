@@ -1,6 +1,6 @@
 Quiz::Application.routes.draw do
   resource :user, :only => [:index] do
-    get :authorize
+    post :authorize
     get :login
   end
 

@@ -6,8 +6,8 @@ class ApplicationController < ActionController::Base
     @current_user = User.find(session[:current_user_id]) unless session[:current_user_id].nil?
   end
 
-  def set_current_user user_id
-    session[:current_user_id] = user_id
+  def set_current_user user
+    session[:current_user_id] = user.id
     refresh_current_user
   end
 
