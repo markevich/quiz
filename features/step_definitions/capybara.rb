@@ -1,4 +1,4 @@
-When(/^open page "([^"]*)"$/) do |path|
+When(/open page "([^"]*)"$/) do |path|
   visit path
 end
 
