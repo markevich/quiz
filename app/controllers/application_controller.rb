@@ -5,6 +5,13 @@ class ApplicationController < ActionController::Base
     redirect_to :back, :notice => e.message
   end
 
+  if Rails.env.test?
+    rescue_from Exception do |e|
+      logger.error e
+      logger.error e.backtrace.join "\n"
+    end
+  end
+  
   private
 
   def current_user

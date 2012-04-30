@@ -1,4 +1,4 @@
 = form_tag authorize_user_path do
   = text_field :user, :login
   = text_field :user, :password
-  = submit_tag 'Войти'
+  = submit_tag 'Войти', :id => :login_button

@@ -14,6 +14,8 @@ Feature: Authorization for users
     Given I open page "/"
     When i fill "<login>" in field "user[login]"
     When i fill "<password>" in field "user[password]"
+    When i click button "#login_button"
+    Then path should be "/quizzes"
     Then page should have content "<login>"
 
     Examples:

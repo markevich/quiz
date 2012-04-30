@@ -5,7 +5,7 @@ class UsersController < ApplicationController
       user = User.find_by_login params[:user][:login]
       if user && user.authenticate(params[:user][:password]) 
         session[:user_id] = user.id  
-        redirect_to index_quizzes_path, :id => 2
+        redirect_to quizzes_path, :id => 2
       else
         raise(IncorrectParameters, 'Неправильный логин или пароль')
       end
@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   end
   
   def login
-    redirect_to index_quizzes_path if user_authorized?
+    redirect_to quizzes_path if user_authorized?
   end
 
   def logout
