@@ -10,7 +10,7 @@ describe UsersController do
       it "redirect to quiz index page" do
         controller.stub!('user_authorized?').and_return true
         get :login
-        response.should redirect_to(quiz_path)
+        response.should redirect_to(quizzes_path)
       end
     end
 
