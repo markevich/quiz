@@ -1,5 +1,7 @@
 require 'cucumber/rails'
 
+#require 'factory_girl'
+
 Capybara.default_selector = :css
 
 # By default, any exception happening in your Rails application will bubble up

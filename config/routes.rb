@@ -4,7 +4,7 @@ Quiz::Application.routes.draw do
     get :login
   end
 
-  resource :quiz
+  resource :quizzes
   
-  root :to => 'user#login'
+  root :to => 'users#login'
 end

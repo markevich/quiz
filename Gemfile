@@ -21,7 +21,6 @@ end
 
 gem 'haml'
 gem 'jquery-rails'
-
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -42,6 +41,7 @@ gem "webrat", :group => [:development, :test]
 
 group :test do
   gem "cucumber-rails", :require => false
+  gem "factory_girl_rails"
   gem "capybara"
   gem "database_cleaner"
 end
