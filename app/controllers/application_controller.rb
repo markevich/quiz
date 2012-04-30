@@ -1,6 +1,9 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_filter :refresh_current_user
+
+  rescue_from IncorrectParameters do |e|
+    redirect_to :back, :notice => e.message
+  end
 
   private
 
