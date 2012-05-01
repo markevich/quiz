@@ -1,14 +1,13 @@
 #encoding: utf-8
 class UsersController < ApplicationController
   def authorize
-    begin
-      user = User.find_by_login params[:user][:login]
-      if user && user.authenticate(params[:user][:password]) 
-        session[:user_id] = user.id  
-        redirect_to quizzes_path, :id => 2
-      else
-        raise(IncorrectParameters, 'Неправильный логин или пароль')
-      end
+    redirect_to(login_user_path, notice: 'Данные авторизации не получены') if params[:user].nil?
+    user = User.find_by_login params[:user][:login]
+    if user && user.authenticate(params[:user][:password]) 
+      session[:user_id] = user.id  
+      redirect_to quizzes_path
+    else
+      redirect_to(login_user_path, notice: 'Неправильный логин или пароль')
     end
   end
   

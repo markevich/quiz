@@ -1,5 +1,5 @@
 Quiz::Application.routes.draw do
-  resource :user, :only => [] do
+  resource :user do
     post :authorize
     get :login
     get :logout
