@@ -30,4 +30,9 @@ describe "users/login" do
       )
     end
   end
+
+  it "renders link for user registration" do
+    render
+    rendered.should have_selector("a", :id => 'register', :href => new_user_path)
+  end
 end
