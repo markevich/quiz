@@ -1,6 +1,11 @@
-= form_tag authorize_user_path do
-  = text_field :user, :login
-  = text_field :user, :password
-  = submit_tag 'Войти', id: :login_button
+.login-form
+  %h1 Авторизация
+  = form_tag authorize_user_path do
+    = text_field :user, :login, placeholder: 'Логин'
+    = text_field :user, :password, placeholder: 'Пароль'
+    %span
+      = check_box_tag 'user[remember]'
+      = label_tag 'user[remember]', 'Запомнить'
+    = submit_tag 'Войти', id: :login_button
 
 = link_to("Регистрация", new_user_path, id: :register)

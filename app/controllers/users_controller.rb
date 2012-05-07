@@ -2,7 +2,7 @@
 class UsersController < ApplicationController
   def authorize
     redirect_to(login_user_path, notice: 'Данные авторизации не получены') if params[:user].nil?
-    user = User.find login: params[:user][:login]
+    user = User.find(:first, conditions: {login: params[:user][:login]})
     if user && user.authenticate(params[:user][:password]) 
       session[:user_id] = user.id  
       redirect_to quizzes_path
