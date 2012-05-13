@@ -66,3 +66,44 @@ input[type="text"], input[type="password"] {
     box-shadow: 0 0 0 3px $light-green;
   }
 }
+
+.header{
+  height: 50px;
+  background: #141517;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  color: white;
+  .header-navigation{
+    -webkit-padding-start: 0;
+    -moz-padding-start: 0;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 13px;
+    text-align: center;
+    text-transform: uppercase;
+    li{
+      display: inline-block;
+      height: 16px;
+      position: relative;
+      top: 2px;
+      &.current{
+        a{
+          color: #94BE38;
+        }
+      }
+      a{
+        margin: 0 13px;
+        text-decoration: none;
+      }
+      &:after{
+        background: #84AA30;
+        border-radius: 50%;
+        content: "";
+        height: 4px;
+        margin-top: -2px;
+        position: absolute;
+        right: -4px;
+        top: 50%;
+        width: 4px;
+      }
+    }
+  }
+}

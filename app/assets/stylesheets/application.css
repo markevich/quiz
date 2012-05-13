@@ -11,8 +11,11 @@ body {
   background-color:#131313;
   color: black;
   font: 12px/1.231 Arial, sans-serif;
+  margin: 0;
 }
-
+ol, ul{
+  list-style-type: none;
+}
 input[type="text"], input[type="password"] {
 }
 .container{
@@ -30,7 +33,7 @@ input:-moz-placeholder {
 .wrapper {
   clear: both;
   margin: auto;
-  padding: 21px 0;
+  padding-bottom: 20px;
   position: relative;
   width: 960px; 
 }
