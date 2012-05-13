@@ -1,3 +1,4 @@
+@authorization
 Feature: Authorization for users
   In order to have an ability to safely work in my own sandbox
   As a user

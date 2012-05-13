@@ -1,7 +1,19 @@
 // Place all the styles related to the User controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
+.register{
+  margin: 0 auto;
+  position: relative;
+  width: 200px;
+  height: 200px;
+  padding: 15px 40px 0 0;
+  .or{
+    padding-left: 100px;
+    margin-bottom: 5px;
+    font-family: Georgia, serif;
+    font-style: italic;
+  }
+}
 .lfheader, .lmheader{
   float: left;
 }
@@ -17,7 +29,7 @@
 .quiz-header{
   padding-left: 90px;
   .site-info{
-    padding: 20px 0 40px;
+    padding: 0 0 40px;
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.06);
     .site-name{
       font-weight: bold;
@@ -25,30 +37,7 @@
       margin-left: 13px;
       text-transform: uppercase;
     }
-    .about{
-      font-family: Georgia, serif;
-      font-style: italic;
-      overflow: hidden;
-      position: relative;
-      text-align: center;
-      width: 311px;
-      .legend-left, .legend-right{
-        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-        border-top: 1px solid black;
-        display: inline-block;
-        margin: 0 0 0 -999px;
-        vertical-align: middle;
-        width: 999px;
-      }
-      .legent-center{
-        display: inline-block;
-        padding: 0 5px 2px;
-        vertical-align: middle;
-      }
-      .legend-right{
-        margin: 0 -999px 0 0;
-      }
-    }
+    
   }
 }
 
@@ -246,6 +235,10 @@
   }
 }
 // end .login-form
-#register {
-
+#registration{
+  width:250px;
+  margin: 0 auto;
+  #register_button{
+    margin: 0;
+  }
 }

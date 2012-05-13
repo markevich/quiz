@@ -1,12 +1,13 @@
-Feature: Authorization for users
+@registration
+Feature: Registration for users
   In order to use application
   As a user
   I want create account
-
+    
   Scenario Outline: Registration with login and password
     Given I open page "/"
     Then I click link "register"
-    Then path should be "/user/new"
+    # Then path should be "/user/new"
     When i fill "<login>" in field "user[login]"
     When i fill "<password>" in field "user[password]"
     When i fill "<password_confirmation>" in field "user[password_confirmation]"

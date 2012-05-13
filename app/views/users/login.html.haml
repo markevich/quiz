@@ -9,4 +9,12 @@
       = label_tag 'user[remember]', 'Запомнить'
     = submit_tag 'Войти', id: :login_button
 
-= link_to("Регистрация", new_user_path, id: :register)
+
+
+.register
+  .or
+    Или
+  %a{href: new_user_path, id: :register, class: 'button big green'} 
+    Регистрация
+    %span
+      За одну минуту

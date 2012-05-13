@@ -1,0 +1,68 @@
+.field_with_errors{
+  height: 30px;
+}
+.text, .text-rounded {
+  position: relative;
+}
+.dark{
+  input[type="text"], input[type="password"] {
+    margin-bottom: 20px;
+    border-radius: 2px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    height: 26px;
+    padding: 0 10px;
+    position: relative;
+    vertical-align: middle;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border-image: initial;
+    background: #141517;
+    color: white;
+    border: 1px solid black;
+    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.15);
+    -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.15);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.15);
+    padding-top: 4px 9;
+    border-image: initial;
+  }
+}
+.text-separator{
+  font-family: Georgia, serif;
+  font-style: italic;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  width: 311px;
+  .left, .right{
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    border-top: 1px solid black;
+    display: inline-block;
+    margin: 0 0 0 -999px;
+    vertical-align: middle;
+    width: 999px;
+  }
+  .center{
+    display: inline-block;
+    padding: 0 5px 2px;
+    vertical-align: middle;
+  }
+  .right{
+    margin: 0 -999px 0 0;
+  }
+}
+input[type="text"], input[type="password"] {
+  &:hover {
+    -webkit-box-shadow: 0 0 0 3px rgba(255,255,255, .1);
+    -moz-box-shadow: 0 0 0 3px rgba(255,255,255, .1);
+    box-shadow: 0 0 0 3px rgba(255,255,255, .1);
+  }
+  &:focus {
+    $light-green: #80a62d;
+    -webkit-box-shadow: 0 0 0 3px $light-green;
+    -moz-box-shadow: 0 0 0 3px $light-green;
+    box-shadow: 0 0 0 3px $light-green;
+  }
+}

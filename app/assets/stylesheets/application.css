@@ -1,6 +1,8 @@
 /* ...
 *= require_self
 *= require user
+*= require button
+*= require public
 */
 
 
@@ -11,6 +13,8 @@ body {
   font: 12px/1.231 Arial, sans-serif;
 }
 
+input[type="text"], input[type="password"] {
+}
 .container{
   position: relative;
   z-index: 1;
