@@ -2,8 +2,67 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.lfheader, .lmheader{
+  float: left;
+}
+.lfheader{
+  width:25%;
+}
+.lmheader{
+  width:50%;
+}
+.site-info-links{
+  padding-top: 35px;
+}
+.quiz-header{
+  padding-left: 90px;
+  .site-info{
+    padding: 20px 0 40px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.06);
+    .site-name{
+      font-weight: bold;
+      margin-bottom: 5px;
+      margin-left: 13px;
+      text-transform: uppercase;
+    }
+    .about{
+      font-family: Georgia, serif;
+      font-style: italic;
+      overflow: hidden;
+      position: relative;
+      text-align: center;
+      width: 311px;
+      .legend-left, .legend-right{
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        border-top: 1px solid black;
+        display: inline-block;
+        margin: 0 0 0 -999px;
+        vertical-align: middle;
+        width: 999px;
+      }
+      .legent-center{
+        display: inline-block;
+        padding: 0 5px 2px;
+        vertical-align: middle;
+      }
+      .legend-right{
+        margin: 0 -999px 0 0;
+      }
+    }
+  }
+}
+
+.last-col{
+  display: table-cell;
+  float: none;
+  width: auto;
+  // margin-right: -3px;
+  // left: -3px;
+  // position: relative;
+}
+
 .login-form {
-  margin: 100px auto;
+  margin: 0 auto;
   h1, span, input, label {
     margin:0;
     padding:0;
@@ -71,7 +130,7 @@
   }
   
   input[type=text], input[type=password], span {
-    color: #686868;
+    color: #222;
     width: 170px;  
 
     -webkit-box-shadow: inset 1px 1px 1px 0px rgba(255,255,255, .6);
@@ -89,18 +148,23 @@
 
   input[type=text], input[type=password] {
     &:hover {
-      -webkit-box-shadow: inset 1px 1px 1px 0px rgba(255,255,255, .6), 0px 0px 5px rgba(255,255,255, .5);
-      -moz-box-shadow: inset 1px 1px 1px 0px rgba(255,255,255, .6), 0px 0px 5px rgba(255,255,255, .5);
-      box-shadow: inset 1px 1px 1px 0px rgba(255,255,255, .6), 0px 0px 5px rgba(255,255,255, .5);
+      -webkit-box-shadow: 0 0 0 3px rgba(255,255,255, .1);
+      -moz-box-shadow: 0 0 0 3px rgba(255,255,255, .1);
+      box-shadow: 0 0 0 3px rgba(255,255,255, .1);
     }
     &:focus {
-      background: #e1e1e1;
-      background: -moz-linear-gradient(top,  #ffffff 0%, #e1e1e1 100%);
-      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#e1e1e1));
-      background: -webkit-linear-gradient(top,  #ffffff 0%,#e1e1e1 100%);
-      background: -o-linear-gradient(top,  #ffffff 0%,#e1e1e1 100%);
-      background: -ms-linear-gradient(top,  #ffffff 0%,#e1e1e1 100%);
-      background: linear-gradient(top,  #ffffff 0%,#e1e1e1 100%);
+      $light-grey: #e1e1e1;
+      $light-green: #80a62d;
+      background: $light-grey;
+      background: -moz-linear-gradient(top,  #ffffff 0%, $light-grey 100%);
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,$light-grey));
+      background: -webkit-linear-gradient(top,  #ffffff 0%,$light-grey 100%);
+      background: -o-linear-gradient(top,  #ffffff 0%,$light-grey 100%);
+      background: -ms-linear-gradient(top,  #ffffff 0%,$light-grey 100%);
+      background: linear-gradient(top,  #ffffff 0%,$light-grey 100%);
+      -webkit-box-shadow: 0 0 0 3px $light-green;
+      -moz-box-shadow: 0 0 0 3px $light-green;
+      box-shadow: 0 0 0 3px $light-green;
     }
   }
 

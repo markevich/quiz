@@ -22,4 +22,5 @@ class ApplicationController < ActionController::Base
   def user_authorized?
     !current_user.nil?
   end
+  helper_method 'user_authorized?'
 end
