@@ -1,17 +1,21 @@
 /* ...
 *= require_self
 *= require user
+*= require quiz
 *= require button
 *= require public
 */
 
 
 body {
-  background:url('bg.png');
+  background:url('bg.jpg');
   background-color:#131313;
+  background-position: top left;
   color: black;
   font: 12px/1.231 Arial, sans-serif;
   margin: 0;
+  height:100%;
+  min-height: 100%;
 }
 ol, ul{
   list-style-type: none;
@@ -29,6 +33,7 @@ input::-webkit-input-placeholder {
 input:-moz-placeholder {
     color:  #555;
 }
+
 
 .wrapper {
   clear: both;

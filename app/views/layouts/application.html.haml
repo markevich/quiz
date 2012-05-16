@@ -9,10 +9,7 @@
   %body
     .container
       = flash_messages
-      - if user_authorized?
-        = render :template => 'users/header'
-      - else
-        = render :template => 'layouts/quiz'
+      = render :template => 'layouts/quiz_header' unless user_authorized?
       .content
         %div{:class => 'wrapper clearfix'}
           = yield

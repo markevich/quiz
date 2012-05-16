@@ -1,3 +1,52 @@
-// Place all the styles related to the quiz controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.container{
+  .content{
+    clear: both;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    .left-panel{
+      float:left;
+      .user-info{
+        padding:20px;
+        .avatar{
+          img{
+            width:60px;
+          }
+          width:60px;
+          margin-right:20px;
+          float:left;
+          -webkit-box-shadow:0px 1px 5px 3px rgba(170,255,170,.6),inset 0px 1px 1px 0px rgb(0,0,0);
+          -moz-box-shadow:0px 1px 5px 3px rgba(170,255,170,.6),inset 0px 1px 1px 0px rgb(0,0,0);
+          box-shadow:0px 1px 5px 3px rgba(170,255,170,.6),inset 0px 1px 1px 0px rgb(0,0,0);
+        }
+        .login{
+          float:left;
+          padding-top:10px
+        }
+      }
+      .menu{
+        width:250px;
+
+      }
+    }
+
+    .middle-panel{
+      padding: 30px 50px 30px 50px;
+      float:left;
+      width: 800px;
+      background: url('quiz-bg.jpg');
+      .title{
+        padding-bottom:10px;
+        border-bottom: 3px solid #80a62d;
+      }
+      .text{
+        font-family: 'Myriad Pro', sans-serif;
+        font-size: 22px;
+        font-weight: bold;
+        color: #80a62d;
+      }
+    }
+  }
+
+
+}

@@ -1,13 +1,21 @@
-.lfheader
-  .site-info-links
-.lmheader
-  .quiz-header
-    .site-info
-      %h1{:class => 'site-name'}
-        Генератор викторин
-      .text-separator
-        %span{:class => 'left'}
-        %span{:class => 'center'}
-          Колледж Бизнеса и Права
-        %span{:class => 'right'}
-%div{:class => 'lfheader last-col'}
+!!! 5
+%html
+  %head
+    %title 
+      Викторины
+    = stylesheet_link_tag "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+    .container
+      = flash_messages
+      .content
+        .left-panel
+          = render template: 'users/info'
+          .menu
+            = render template: 'quizzes/menu'
+        .middle-panel
+          .title
+            .text
+              = yield(:page_title)
+          = yield
