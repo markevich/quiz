@@ -31,13 +31,7 @@ after "deploy", "deploy:bundle"
 
 namespace :deploy do
   task :symlink do
-    run "rm -Rf #{release_path}/log"
-    run "rm -Rf #{release_path}/public/remote"
-    run "rm -Rf #{release_path}/public/assets"
-    run "ln -nfs #{shared_path}/assets #{release_path}/public/assets"
-
     run "ln -nfs #{shared_path}/log #{release_path}/log"
-    run "ln -nfs #{shared_path}/sockets #{release_path}/tmp/sockets"
     run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
   end
 
