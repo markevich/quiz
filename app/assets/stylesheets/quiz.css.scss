@@ -7,21 +7,26 @@
     .left-panel{
       float:left;
       .user-info{
-        padding:20px;
         .avatar{
           img{
             width:60px;
           }
           width:60px;
           margin-right:20px;
+          margin-bottom:30px;
           float:left;
           -webkit-box-shadow:0px 1px 5px 3px rgba(170,255,170,.6),inset 0px 1px 1px 0px rgb(0,0,0);
           -moz-box-shadow:0px 1px 5px 3px rgba(170,255,170,.6),inset 0px 1px 1px 0px rgb(0,0,0);
           box-shadow:0px 1px 5px 3px rgba(170,255,170,.6),inset 0px 1px 1px 0px rgb(0,0,0);
         }
-        .login{
+        .name{
+          position:relative;
           float:left;
-          padding-top:10px
+          padding-top:10px;
+          font-family: 'Myriad Pro', sans-serif;
+          font-size: 20px;
+          color: #fff;
+          padding-top:20px;
         }
       }
       .menu{

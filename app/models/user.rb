@@ -10,4 +10,7 @@ class User < ActiveRecord::Base
                         length: { within: 5..64 },
                         on: :create
 
+  def name
+    login.to_s.capitalize
+  end
 end
