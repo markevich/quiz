@@ -3,7 +3,7 @@
   %h1 Авторизация
   = form_tag authorize_user_path do
     = text_field :user, :login, placeholder: 'Логин'
-    = text_field :user, :password, placeholder: 'Пароль'
+    = password_field :user, :password, placeholder: 'Пароль'
     %span
       = check_box_tag 'user[remember]'
       = label_tag 'user[remember]', 'Запомнить'

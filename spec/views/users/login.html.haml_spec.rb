@@ -25,7 +25,7 @@ describe "users/login" do
     render
     rendered.should have_selector("form") do |form|
       form.should have_selector("input",
-        :type => "text",
+        :type => "password",
         :name => "user[password]",
       )
     end
