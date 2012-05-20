@@ -1,11 +1,24 @@
 %ul.accordion
   %li#one.files
-    %a.new_quiz{href: new_quizzes_path}
+    %a{href: "#"}
       Создать викторину
-      
+      %span
+    %ul.sub-menu
+      %li
+        %a{href: new_quizzes_path(type: 1)}
+          %em
+            01
+          Своя игра
+      %li
+        %a{href: new_quizzes_path(type: 2)}
+          %em
+            02
+          Алфавит
+
+
   %li#two.mail
     %a{href: "#one"}
-      Mail
+      Своя игра
       %span
         26
 
@@ -18,9 +31,21 @@
           %span
             42
 
-  
+  %li#two
+    %a{href: "#one"}
+      Алфавит
+      %span
+        26
 
-  
+    %ul.sub-menu
+      %li
+        %a{href: "#"}
+          %em
+            01
+          Dropbox
+          %span
+            42
+
   %li#four.sign
     %a{href: "#one"}
-      Sign Out
+      Выход

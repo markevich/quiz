@@ -1,1 +1,8 @@
-=title 'Новая викторина'
+= title 'Новая викторина'
+- content_for :page_title do
+  Новая викторина
+
+- if @type == 1
+  = render template: 'quizzes/own_game'
+- elsif @type == 2
+  = render template: 'quizzes/alphabet'

@@ -5,6 +5,6 @@ class QuizzesController < ApplicationController
   end
 
   def new
-    render layout: 'application'
+    @type = params[:type].to_i
   end
 end
