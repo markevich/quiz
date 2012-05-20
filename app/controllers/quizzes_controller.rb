@@ -3,4 +3,8 @@ class QuizzesController < ApplicationController
   def index
     
   end
+
+  def new
+    render layout: 'application'
+  end
 end
