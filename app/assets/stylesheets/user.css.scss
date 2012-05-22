@@ -14,22 +14,17 @@
     font-style: italic;
   }
 }
-.lfheader, .lmheader{
-  float: left;
-}
-.lfheader{
-  width:25%;
-}
+
 .lmheader{
-  width:50%;
+  width: 300px;
+  margin: 0 auto 30px auto;
 }
 .site-info-links{
   padding-top: 35px;
 }
 .quiz-header{
-  padding-left: 145px;
+  margin: 0px auto;
   .site-info{
-    margin: 0px auto;
     white-space:nowrap;
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.06);
     .site-name{
