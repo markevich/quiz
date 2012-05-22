@@ -53,3 +53,36 @@
     }
   }
 }
+
+.questions{
+  overflow: hidden;
+}
+.category{
+  width: 800px;
+  overflow: hidden;
+  .name, .item{
+    line-height: 62px;
+    margin: 5px;
+    padding: 5px;
+    height: 62px;
+    float: left;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5;
+    font-family: 'Myriad Pro', sans-serif;
+    font-size: 1.2em;
+  }
+  .name{
+    width:200px;
+  }
+  .item{
+    width: 62px;
+    background: #90c62f;
+    text-align: center;
+    font-size: 2em;
+    cursor: pointer;
+  }
+  &:after{
+    clear:both;
+  }
+}
