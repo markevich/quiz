@@ -1,5 +1,5 @@
-:javascript
-  $(function(){OwnGameConstructor.initialize()})
+// :javascript
+//   $(function(){OwnGameConstructor.initialize()})
 .questions
   .category
     .name
@@ -18,5 +18,8 @@
       20
 
 .clear
-  %a.add-category{href: '#'}
+  %a.add-category{href: '#', onclick: 'OwnGameConstructor.addCategory()'}
     Добавить категорию
+  %br
+  %a.add-category{href: '#', onclick: 'OwnGameConstructor.addPrice()'}
+    Добавить Цену
