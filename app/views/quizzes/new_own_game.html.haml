@@ -1,0 +1,19 @@
+.text.dark
+  .new_own_game
+    = form_for @quiz, url: quizzes_path do |form|
+      - if @quiz.errors.any?
+        #error_explanation
+          %h2
+            = pluralize(@quiz.errors.count, "error") 
+            привели к ошибке создания викторины
+          %ul
+            - @quiz.errors.full_messages.each do |msg|
+              %li
+                = msg
+      = hidden_field_tag 'quizzes[type]',(params[:type] || @type)
+      = form.text_field :name, :placeholder => 'Имя', :style => 'width: 200px'
+      %br
+      = form.text_field :category, :placeholder => 'Категория', :style => 'width: 200px'
+      %br
+      %a.button.green{:class => 'button green', onclick: "$('#new_quizzes').submit()"}
+        Продолжить

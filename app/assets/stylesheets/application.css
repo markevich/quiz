@@ -1,10 +1,10 @@
 /* ...
 *= require_self
-*= require user
-*= require quiz
-*= require button
-*= require accordionmenu
 *= require public
+*= require user
+*= require button
+*= require quiz
+*= require accordionmenu
 */
 
 

@@ -2,7 +2,8 @@
 - content_for :page_title do
   Новая викторина
 
+= @type
 - if @type == 1
-  = render template: 'quizzes/own_game'
+  = render template: 'quizzes/new_own_game'
 - elsif @type == 2
   = render template: 'quizzes/alphabet'

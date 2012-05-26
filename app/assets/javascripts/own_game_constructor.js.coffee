@@ -1,9 +1,6 @@
 class @OwnGameConstructor
   @PRICES_LIMIT=7
   @CATEGORIES_LIMIT=7
-
-  @initialize: ->
-    # set_events()
     
   @addCategory: ->
     categories_count = $('.category').length

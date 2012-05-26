@@ -1,6 +1,6 @@
+#encoding: utf-8
 class ApplicationController < ActionController::Base
   protect_from_forgery
-
   rescue_from IncorrectParameters do |e|
     redirect_to :back, :notice => e.message
   end
@@ -13,6 +13,12 @@ class ApplicationController < ActionController::Base
   end
   
   private
+
+  def check_user
+    unless user_authorized?
+      redirect_to login_user_path, :notice => 'Вы должны быть авторизованы для этого действия'
+    end
+  end
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
