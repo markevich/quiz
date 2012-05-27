@@ -7,6 +7,7 @@ Quiz::Application.routes.draw do
 
   resource :quizzes do
     get :index
+    get 'edit/:id' => 'quizzes#edit', as: 'edit'
   end
   
   root :to => 'users#login'

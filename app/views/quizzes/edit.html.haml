@@ -1,0 +1,4 @@
+- if @quiz.game_type == Quizzes::OWN_GAME
+  = render template: 'quizzes/own_game/edit'
+- elsif @quiz.game_type == Quizzes::ALPHABET
+  = render template: 'quizzes/alphabet/edit'

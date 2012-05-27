@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   has_secure_password
-
+  has_many :quizzes
   attr_accessible :login, :password_digest
   validates :login,  presence: true,
                      uniqueness: true,
