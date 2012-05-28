@@ -1,0 +1,11 @@
+.text.dark
+  = form_for @question do |form|
+    - if @question.errors.any?
+      #error_explanation
+        %h2
+          = pluralize(@question.errors.count, "error") 
+          привели к ошибке создания викторины
+        %ul
+          - @question.errors.full_messages.each do |msg|
+            %li
+              = msg

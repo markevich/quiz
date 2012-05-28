@@ -4,11 +4,11 @@ class Quizzes < ActiveRecord::Base
   belongs_to :user
   has_many :questions
   
-  attr_accessible :name, :category, :type
+  attr_accessible :name, :category, :game_type
 
   validates :name,  presence: true,
                     uniqueness: true
 
   validates :category,  presence: true
-  validates :type,  presence: true
+  validates :game_type,  presence: true
 end

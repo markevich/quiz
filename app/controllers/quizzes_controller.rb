@@ -17,9 +17,9 @@ class QuizzesController < ApplicationController
 
   def create
     @quiz = Quizzes.new({name: params[:quizzes][:name],
-     category: params[:quizzes][:category],
-     game_type: params[:quizzes][:game_type]}
+     category: params[:quizzes][:category]}
      ).tap do |quiz|
+      quiz.game_type = params[:quizzes][:game_type]
       quiz.user = current_user
     end
 
