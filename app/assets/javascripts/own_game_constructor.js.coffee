@@ -1,7 +1,16 @@
 class @OwnGameConstructor
   @PRICES_LIMIT=7
   @CATEGORIES_LIMIT=7
-    
+  
+  @regenerate_grid: ->
+    $.post('/quizzes/own_game/constructor',{id: $('#quizzes_id').val()}, (constructor) ->
+      $('.questions').html(constructor);
+    )
+
+  @create_question: (quiz_id, category, price) ->
+    $.post('/questions/own_game/create',
+    {quiz_id: quiz_id, category: category, price: price})
+
   @addCategory: ->
     categories_count = $('.category').length
     return if categories_count >= @CATEGORIES_LIMIT

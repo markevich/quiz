@@ -7,7 +7,7 @@ class QuizzesController < ApplicationController
   end
 
   def edit
-    @quiz = Quizzes.find(:first, params[:id].to_i)
+    @quiz = Quizzes.find(params[:id])
   end
 
   def new
@@ -31,6 +31,15 @@ class QuizzesController < ApplicationController
     end
   end
 
+  def own_game_constructor
+    quiz = Quizzes.find(params[:id])
+    # @questions = quiz.questions(:order)
+    @result = quiz.questions.group_by{|question| question.params[:category]}
+    @result = @result.inject({}) do |result, hash|
+      result.merge! hash[0] => hash[1].sort_by{|question| question.params[:price].to_i}
+    end
+    render template: 'quizzes/own_game/constructor', layout: false
+  end
   private
   def check_accessory
     quiz = Quizzes.find(:first, params[:id].to_i)

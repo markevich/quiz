@@ -1,18 +1,27 @@
 class QuestionsController < ApplicationController
   layout 'quiz'
-  before_filter :check_accessory, :only => [:new]
-  def new
-    if params[:quiz_id].nil?
-      redirect_to :back, :notice => 'quiz id not sended'
+  before_filter :check_accessory, :only => [:edit, :new_own_game  ]
+  def edit
+    if params[:id].nil?
+      redirect_to :back, :notice => 'ID not specified'
       return
     end
-    @quiz = Quizzes.find(:first, params[:quiz_id].to_i)
-    @question = Question.new
+    @question = Question.find(:first, params[:quiz_id].to_i)
   end
+
+  def create_own_game_question
+    Quizzes.find(params[:quiz_id]).questions.create(
+      params: {
+        category: params[:category],
+        price: params[:price]
+      })
+    render nothing: true
+  end
+
   private
   def check_accessory
-    quiz = Quizzes.find(:first, params[:id].to_i)
-    unless quiz.user_id == current_user.id
+    question = Question.find(:first, params[:quiz_id].to_i)
+    unless question.quizzes.user_id == current_user.id
       redirect_to :status => 404 
       return false
     end

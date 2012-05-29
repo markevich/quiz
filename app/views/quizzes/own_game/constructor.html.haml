@@ -1,0 +1,8 @@
+- @result.each do |category, questions|
+  .category
+    .name
+      = category
+    - questions.each do |question|
+      .item{class: question.params[:text].blank? ? 'gray': nil}
+        %a{href: edit_questions_path(id: question.id)}
+        = question.params[:price]

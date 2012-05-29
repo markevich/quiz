@@ -1,23 +1,23 @@
 :javascript
-  OwnGame.initialize();
+  $().ready(function(){OwnGameConstructor.regenerate_grid()});
 = hidden_field_tag 'quizzes[id]', @quiz.id
 .constructor
   .questions
-    .category
-      .name
-        blabla
-      .item.gray
-        10
-      .item.gray
-        20
+    / .category
+    /   .name
+    /     blabla
+    /   .item.gray
+    /     10
+    /   .item.gray
+    /     20
 
-    .category
-      .name
-        blabla
-      .item.gray
-        10
-      .item.gray
-        20
+    / .category
+    /   .name
+    /     blabla
+    /   .item.gray
+    /     10
+    /   .item.gray
+    /     20
 
   .clear
     %a.add-category{href: '#', onclick: 'OwnGameConstructor.addCategory()'}
