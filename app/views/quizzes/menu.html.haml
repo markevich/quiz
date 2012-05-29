@@ -5,12 +5,12 @@
       %span
     %ul.sub-menu
       %li
-        %a{href: new_quizzes_path(game_type: 1)}
+        %a{href: new_quizzes_path(game_type: Quizzes::OWN_GAME)}
           %em
             01
           Своя игра
       %li
-        %a{href: new_quizzes_path(game_type: 2)}
+        %a{href: new_quizzes_path(game_type: Quizzes::ALPHABET)}
           %em
             02
           Алфавит
@@ -20,31 +20,31 @@
     %a{href: "#one"}
       Своя игра
       %span
-        26
-
+        = current_user.quizzes.where(game_type: Quizzes::OWN_GAME).count
     %ul.sub-menu
-      %li
-        %a{href: "#"}
-          %em
-            01
-          Dropbox
-          %span
-            42
+      - current_user.quizzes.where(game_type: Quizzes::OWN_GAME).group(:category).count.each_with_index do |(category_name, quizzes_count), index|
+        %li
+          %a{href: '#'}
+            %em
+              = index
+            = category_name
+            %span
+              = quizzes_count
 
   %li#two
     %a{href: "#one"}
       Алфавит
       %span
-        26
+        = current_user.quizzes.where(game_type: Quizzes::ALPHABET).count
 
-    %ul.sub-menu
+    - current_user.quizzes.where(game_type: Quizzes::ALPHABET).group(:category).count.each_with_index do |(category_name, quizzes_count), index|
       %li
-        %a{href: "#"}
+        %a{href: '#'}
           %em
-            01
-          Dropbox
+            = index
+          = category_name
           %span
-            42
+            = quizzes_count
 
   %li#four.sign
     %a.exit{href: logout_user_path}

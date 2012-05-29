@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
   has_secure_password
-  has_many :quizzes
   attr_accessible :login, :password_digest
   validates :login,  presence: true,
                      uniqueness: true,
@@ -12,5 +11,8 @@ class User < ActiveRecord::Base
 
   def name
     login.to_s.capitalize
+  end
+  def quizzes
+    Quizzes.where(user_id: id)
   end
 end
