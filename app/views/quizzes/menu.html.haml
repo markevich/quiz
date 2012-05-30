@@ -20,9 +20,9 @@
     %a{href: "#one"}
       Своя игра
       %span
-        = current_user.quizzes.where(game_type: Quizzes::OWN_GAME).count
+        = current_user_quizzes(Quizzes::OWN_GAME).count
     %ul.sub-menu
-      - current_user.quizzes.where(game_type: Quizzes::OWN_GAME).group(:category).count.each_with_index do |(category_name, quizzes_count), index|
+      - current_user_grouped_quizzes(Quizzes::OWN_GAME) do |category_name, quizzes_count, index|
         %li
           %a{href: '#'}
             %em
@@ -35,16 +35,16 @@
     %a{href: "#one"}
       Алфавит
       %span
-        = current_user.quizzes.where(game_type: Quizzes::ALPHABET).count
-
-    - current_user.quizzes.where(game_type: Quizzes::ALPHABET).group(:category).count.each_with_index do |(category_name, quizzes_count), index|
-      %li
-        %a{href: '#'}
-          %em
-            = index
-          = category_name
-          %span
-            = quizzes_count
+        = current_user_quizzes(Quizzes::ALPHABET).count
+    %ul.sub-menu
+      - current_user_grouped_quizzes(Quizzes::ALPHABET) do |category_name, quizzes_count, index|
+        %li
+          %a{href: '#'}
+            %em
+              = index
+            = category_name
+            %span
+              = quizzes_count
 
   %li#four.sign
     %a.exit{href: logout_user_path}
