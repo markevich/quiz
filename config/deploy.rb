@@ -27,6 +27,7 @@ after "deploy:update", 'deploy:symlink'
 after "deploy:symlink", 'deploy:cleanup'
 # after "deploy:bundle", 'deploy:whenever'
 after "deploy", "deploy:bundle"
+after "deploy:bundle", "apache:restart"
 
 
 namespace :deploy do
@@ -37,19 +38,15 @@ namespace :deploy do
 
   task :bundle do
     run "cd #{release_path} && bundle install"
+    run "cd #{release_path} && bundle exec rake db:migrate"
   end
 
-  task :assets do
-    # mv assets/* /home/user/apps/demoform/shared/assets/
-    #run "ln -nfs #{shared_path}/assets #{release_path}/public/assets"
-
-    #run "cd #{deploy_to}/current && bundle exec rake assets:clean"
-    # run "cd #{deploy_to}/current && bundle exec rake assets:clean"
-    # run "cd #{deploy_to}/current && bundle exec rake assets:precompile"
-
-    # run "rm -Rf #{shared_path}/assets/*"
-    # run "mv #{deploy_to}/current/public/assets/* #{shared_path}/assets/"
-    # run "rm -Rf #{deploy_to}/current/public/assets"
-    # run "ln -nfs #{shared_path}/assets #{deploy_to}/current/public/assets"
+end
+namespace :apache do
+  [:stop, :start, :restart, :reload].each do |action|
+    desc "#{action.to_s.capitalize} Apache"
+    task action, :roles => :web do
+      invoke_command "/etc/init.d/apache2 #{action.to_s}", :via => run_method
+    end
   end
 end
