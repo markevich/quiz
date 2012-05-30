@@ -3,6 +3,5 @@
     .name
       = category
     - questions.each do |question|
-      .item{class: question.params[:text].blank? ? 'gray': nil}
-        %a{href: edit_questions_path(id: question.id)}
+      %a.item{href: edit_questions_path(id: question.id),class: question.text.blank? ? 'gray': nil}
         = question.params[:price]
