@@ -27,7 +27,7 @@ after "deploy:update", 'deploy:symlink'
 after "deploy:symlink", 'deploy:cleanup'
 # after "deploy:bundle", 'deploy:whenever'
 after "deploy", "deploy:bundle"
-after "deploy:bundle", "apache:restart"
+# after "deploy:bundle", "apache:restart"
 
 
 namespace :deploy do
