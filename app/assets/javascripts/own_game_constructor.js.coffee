@@ -7,9 +7,10 @@ class @OwnGameConstructor
       $('.questions').html(constructor);
     )
 
-  @create_question: (quiz_id, category, price) ->
+  create_question= (quiz_id, category, price) ->
     $.post('/questions/own_game/create',
     {quiz_id: quiz_id, category: category, price: price})
+    @regenerate_grid()
 
   @addCategory: ->
     categories_count = $('.category').length
@@ -21,3 +22,15 @@ class @OwnGameConstructor
     return if prices_count >= @PRICES_LIMIT
     $('.category').each ->
       $(this).append($('.item:first',this).clone())
+
+  get_categories= ->
+    categories = []
+    $.each $('.category .name'), (index, element)->
+      categories.push($(element).text())
+    categories
+
+  get_prices= ->
+    prices = []
+    $.each $('.category:first .item'), (index, element)->
+      prices.push($(element).text())
+    prices
