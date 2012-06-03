@@ -4,16 +4,18 @@ class @OwnGameConstructor
   PRICES=[10,20,30,50,70,100,150]
   
   @regenerate_grid: ->
+    regenerate_grid()
+    
+
+  regenerate_grid= ->
     $.post('/quizzes/own_game/constructor',{id: $('#quizzes_id').val()}, (constructor) ->
       $('.questions').html(constructor);
       add_plus_signs()
     )
 
-
   create_question= (quiz_id, category, price) ->
     $.post('/questions/own_game/create',
     {quiz_id: quiz_id, category: category, price: price})
-    @regenerate_grid()
 
   add_plus_signs= ->
     add_plus_to_price()
@@ -29,15 +31,28 @@ class @OwnGameConstructor
 
   add_plus_to_category= ->
     categories_count = get_categories().length
-    return inless categories_count < CATEGORIES_LIMIT
-    plus_element = '<div class="category"><div class="name plus"></div></div>'
+    return unless categories_count < CATEGORIES_LIMIT
+    plus_element = '<div class="category"><div class="name empty"><div class="plus"></div></div></div>'
+    $('.category:last').append(plus_element)
+    $('.name .plus').click ->
+      addCategory()
 
-  @addCategory: ->
+  addCategory= ->
+    name = prompt('Введите название категории.')
+    return if (!name? || name == '')
+    prices = get_prices()
+    for price in prices
+      create_question(get_quiz_id(), name, price)
+    window.setTimeout(regenerate_grid, 2000)
+
 
   addPrice= ->
     prices_count = get_prices().length
-    price = PRICES[prices_count]
-    alert price
+    new_price = PRICES[prices_count]
+    categories = get_categories()
+    for category in categories
+      create_question(get_quiz_id(), category, new_price)
+    window.setTimeout(regenerate_grid, 2000)
 
 
   get_categories= ->
@@ -53,3 +68,6 @@ class @OwnGameConstructor
       return false if $(element).hasClass('plus')
       prices.push($(element).text())
     prices
+
+  get_quiz_id= ->
+    $('#quizzes_id').val()

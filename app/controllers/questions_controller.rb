@@ -10,9 +10,10 @@ class QuestionsController < ApplicationController
   end
 
   def create_own_game_question
+    category = params[:category].gsub(/\n/, '').strip
     Quizzes.find(params[:quiz_id]).questions.create(
       params: {
-        category: params[:category],
+        category: category,
         price: params[:price]
       })
     render nothing: true

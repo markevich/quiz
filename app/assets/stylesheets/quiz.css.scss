@@ -28,6 +28,7 @@
           color: #fff;
           padding-top:20px;
         }
+
       }
       .menu{
         width:250px;
@@ -80,6 +81,14 @@
     background: #90c62f;
     text-align: center;
     font-size: 2em;
+    cursor: pointer;
+
+  }
+  .plus{
+    overflow:hidden;
+    background: url('plus.png') no-repeat top left;
+    width:62px;
+    height:62px;
     cursor: pointer;
   }
   .gray{
