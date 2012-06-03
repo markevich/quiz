@@ -1,7 +1,14 @@
-- @result.each do |category, questions|
+- @result.each_with_index do |(category, questions), index|
+  - if index == 0
+    .category
+      .name.empty
+      .constructor-header
+        .prices
+          - questions.each do |question|
+            %a.item.transparent
+              = question.params[:price]
   .category
     .name
       = category
     - questions.each do |question|
       %a.item{href: edit_questions_path(id: question.id),class: question.text.blank? ? 'gray': nil}
-        = question.params[:price]
