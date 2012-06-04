@@ -96,6 +96,7 @@
     }
   }
   .item{
+    overflow:hidden;
     width: 62px;
     background: #90c62f;
     text-align: center;
@@ -127,16 +128,33 @@
   }
 }
 
-
+.tooltip {
+  top:100px;
+  overflow:hidden;
+  z-index:999;
+  display:none;
+  background:transparent url('green_arrow.png') no-repeat;
+  font-size:12px;
+  height:70px;
+  width:160px;
+  padding:25px;
+  color:#eee;
+}
 .new_own_game{
   padding-top: 10px;
   input::-webkit-input-placeholder {
     color:  #bbb;
   }
+  textarea::-webkit-input-placeholder {
+    color:  #bbb;
+  }
   input:-moz-placeholder {
       color:  #bbb;
   }
-  input[type=text]{
+  textarea:-moz-placeholder {
+      color:  #bbb;
+  }
+  input[type=text], textarea{
     padding: 5px;
     background: #5E5659;
   }

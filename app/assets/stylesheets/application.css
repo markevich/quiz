@@ -57,3 +57,5 @@ input:-moz-placeholder {
     visibility: hidden;
     }
   }
+
+ /* tooltip styling. by default the element to be styled is .tooltip  */

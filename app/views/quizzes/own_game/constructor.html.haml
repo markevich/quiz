@@ -11,5 +11,7 @@
     .name{onclick: "OwnGameConstructor.delete_category('#{category}')"}
       %span
         = category
-    - questions.each do |question|
-      %a.item{href: edit_questions_path(id: question.id),class: question.text.blank? ? 'gray': nil}
+    .trigger{:style => 'overflow:hidden'}
+      - questions.each do |question|
+        %a.item{href: edit_questions_path(id: question.id),class: question.has_text? ? 'green': 'gray', title: question.sliced_text}
+        

@@ -1,12 +1,9 @@
 class QuestionsController < ApplicationController
   layout 'quiz'
-  before_filter :check_accessory, :only => [:edit, :new_own_game  ]
+  before_filter :check_accessory, :only => [:edit]
   def edit
-    if params[:id].nil?
-      redirect_to :back, :notice => 'ID not specified'
-      return
-    end
-    @question = Question.find(:first, params[:quiz_id].to_i)
+    @question = Question.find(params[:id])
+    render :template => 'questions/own_game/edit'
   end
 
   def delete_own_game_category
@@ -37,10 +34,18 @@ class QuestionsController < ApplicationController
     render nothing: true
   end
 
+  def update
+    question = Question.find params[:id]
+    question.text = params[:question][:text].strip unless params[:question][:text].blank?
+    question.answer = params[:question][:answer].strip unless params[:question][:answer].blank?
+    question.save
+    redirect_to edit_quizzes_path(id: question.quizzes_id)
+  end
+
   private
   def check_accessory
-    question = Question.find(:first, params[:quiz_id].to_i)
-    unless question.quizzes.user_id == current_user.id
+    question = Question.find(params[:id])
+    unless user_authorized? and question.quizzes.user_id == current_user.id
       redirect_to :status => 404 
       return false
     end

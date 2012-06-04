@@ -1,11 +1,19 @@
-.text.dark
-  = form_for @question do |form|
-    - if @question.errors.any?
-      #error_explanation
-        %h2
-          = pluralize(@question.errors.count, "error") 
-          привели к ошибке создания викторины
-        %ul
-          - @question.errors.full_messages.each do |msg|
-            %li
-              = msg
+.new_own_game
+  .text.dark
+    = form_for @question, url: questions_path, :html => {method: :put} do |form|
+      - if @question.errors.any?
+        #error_explanation
+          %h2
+            = pluralize(@question.errors.count, "error") 
+            привели к ошибке создания викторины
+          %ul
+            - @question.errors.full_messages.each do |msg|
+              %li
+                = msg
+      = hidden_field_tag :id, @question.id
+      = form.text_area :text, :placeholder => 'Вопрос', :style => 'width: 300px; height: 100px', rows: nil, cols: nil, :value => @question.text
+      %br
+      = form.text_field :answer,:placeholder => 'Ответ', :style => 'width: 300px', :value => @question.answer
+      %br
+      %a.button.green{:class => 'button green', onclick: "$('.edit_question').submit()"}
+        Обновить
