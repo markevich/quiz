@@ -27,6 +27,7 @@
           font-size: 20px;
           color: #fff;
           padding-top:20px;
+          
         }
 
       }
@@ -58,11 +59,11 @@
 .questions{
   overflow: hidden;
 }
+
 .category{
   width: 800px;
   overflow: hidden;
   .name, .item{
-    line-height: 62px;
     margin: 5px;
     padding: 5px;
     height: 62px;
@@ -75,6 +76,23 @@
   }
   .name{
     width:200px;
+    cursor:pointer;
+    background: rgba(55,245,0,.2);
+    &:hover {
+      background: url('delete-name.png') no-repeat;
+    }
+    span{
+      width:200px;
+      height:60px;
+      vertical-align:middle;
+      display:table-cell;
+    }
+  }
+  .empty{
+    background: transparent;
+    &:hover{
+      background: transparent;
+    }
   }
   .item{
     width: 62px;
@@ -82,7 +100,7 @@
     text-align: center;
     font-size: 2em;
     cursor: pointer;
-
+    line-height: 62px;
   }
   .plus{
     overflow:hidden;
@@ -97,6 +115,11 @@
   }
   .transparent{
     background-color: transparent;
+    cursor:default;
+    &:hover{
+      background: url('delete.png') no-repeat top left;
+      cursor:pointer;
+    }
   }
   &:after{
     clear:both;
@@ -111,8 +134,8 @@
   input:-moz-placeholder {
       color:  #bbb;
   }
-  padding: 5px;
   input[type=text]{
+    padding: 5px;
     background: #5E5659;
   }
   .button{

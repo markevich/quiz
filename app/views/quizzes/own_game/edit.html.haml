@@ -1,5 +1,10 @@
 :javascript
-  $().ready(function(){OwnGameConstructor.regenerate_grid()});
+  $().ready(function(){
+    OwnGameConstructor.regenerate_grid();
+    $('.name').textfill({ maxFontPixels: 22 });
+  });
+- content_for :page_title do
+  = "Редактирование викторины #{@quiz.name}" 
 = hidden_field_tag 'quizzes[id]', @quiz.id
 .constructor
   .questions

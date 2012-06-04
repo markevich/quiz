@@ -1,21 +1,31 @@
 class @OwnGameConstructor
   PRICES_LIMIT=7
   CATEGORIES_LIMIT=6
-  PRICES=[10,20,30,50,70,100,150]
   
   @regenerate_grid: ->
     regenerate_grid()
     
 
   regenerate_grid= ->
-    $.post('/quizzes/own_game/constructor',{id: $('#quizzes_id').val()}, (constructor) ->
+    $.post('/quizzes/own_game/constructor',{id: get_quiz_id()}, (constructor) ->
       $('.questions').html(constructor);
       add_plus_signs()
     )
 
-  create_question= (quiz_id, category, price) ->
+  @delete_category=(name) ->
+    $.post('/questions/own_game/delete_category',{quiz_id: get_quiz_id, category: name}, ->
+      regenerate_grid()
+    )
+  @delete_price=(name) ->
+    $.post('/questions/own_game/delete_price',{quiz_id: get_quiz_id, price: name}, ->
+      regenerate_grid()
+    )
+    
+
+  create_questions= (quiz_id, categories, prices) ->
     $.post('/questions/own_game/create',
-    {quiz_id: quiz_id, category: category, price: price})
+    {quiz_id: quiz_id, categories: categories, prices: prices},
+    regenerate_grid)
 
   add_plus_signs= ->
     add_plus_to_price()
@@ -24,9 +34,9 @@ class @OwnGameConstructor
   add_plus_to_price= ->
     prices_count = get_prices().length
     return unless prices_count < PRICES_LIMIT
-    plus_element = $('.prices .item:first').clone().text('').attr('class', 'item plus')
+    plus_element = '<div class = "item plus"></div>'
     $('.prices').append(plus_element)
-    plus_element.click ->
+    $('.item.plus').click ->
       addPrice()
 
   add_plus_to_category= ->
@@ -41,18 +51,14 @@ class @OwnGameConstructor
     name = prompt('Введите название категории.')
     return if (!name? || name == '')
     prices = get_prices()
-    for price in prices
-      create_question(get_quiz_id(), name, price)
-    window.setTimeout(regenerate_grid, 2000)
+    create_questions(get_quiz_id(), [name], prices)
 
 
   addPrice= ->
-    prices_count = get_prices().length
-    new_price = PRICES[prices_count]
+    new_price = prompt('Введите цену.')
+    return if (!new_price? || new_price == '' || !is_int(parseInt(new_price)))
     categories = get_categories()
-    for category in categories
-      create_question(get_quiz_id(), category, new_price)
-    window.setTimeout(regenerate_grid, 2000)
+    create_questions(get_quiz_id(), categories, [new_price])
 
 
   get_categories= ->
@@ -71,3 +77,6 @@ class @OwnGameConstructor
 
   get_quiz_id= ->
     $('#quizzes_id').val()
+
+  is_int= (n)->
+   return (typeof n is 'number' && n % 1 == 0)

@@ -24,6 +24,7 @@ class QuizzesController < ApplicationController
     end
 
     if @quiz.save
+      @quiz.create_basic_questions
       redirect_to edit_quizzes_path(id: @quiz.id)
     else
       @game_type = params[:quizzes][:game_type].to_i

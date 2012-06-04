@@ -12,6 +12,8 @@ Quiz::Application.routes.draw do
   end
   resource :questions do
     post 'own_game/create' => 'questions#create_own_game_question'
+    post 'own_game/delete_category' => 'questions#delete_own_game_category'
+    post 'own_game/delete_price' => 'questions#delete_own_game_price'
   end
   
   root :to => 'users#login'

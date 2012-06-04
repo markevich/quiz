@@ -5,10 +5,11 @@
       .constructor-header
         .prices
           - questions.each do |question|
-            %a.item.transparent
+            .item.transparent{onclick: "OwnGameConstructor.delete_price(#{question.params[:price]})"}
               = question.params[:price]
   .category
-    .name
-      = category
+    .name{onclick: "OwnGameConstructor.delete_category('#{category}')"}
+      %span
+        = category
     - questions.each do |question|
       %a.item{href: edit_questions_path(id: question.id),class: question.text.blank? ? 'gray': nil}
