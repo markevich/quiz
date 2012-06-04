@@ -41,6 +41,7 @@
       padding: 30px 50px 30px 50px;
       float:left;
       width: 800px;
+      min-height: 600px;
       background: url('quiz-bg.jpg');
       .title{
         padding-bottom:10px;
@@ -128,6 +129,7 @@
 
 
 .new_own_game{
+  padding-top: 10px;
   input::-webkit-input-placeholder {
     color:  #bbb;
   }
@@ -141,5 +143,26 @@
   .button{
     margin-left: 0;
     margin-top: 5px;
+  }
+}
+.games{
+  width: 600px;
+  margin:20px auto;
+  table{
+    font-family: 'Myriad Pro', sans-serif;
+    font-size: 14px;
+    width: 600px;
+    border-collapse: collapse;
+    text-align: left;
+    th{
+      font-size: 16px;
+      font-weight: normal;
+      color: #039;
+      border-bottom: 2px solid #6678B1;
+      padding: 10px 0;
+    }
+    td{
+      color: black;
+    }
   }
 }

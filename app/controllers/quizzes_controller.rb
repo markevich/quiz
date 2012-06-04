@@ -32,6 +32,11 @@ class QuizzesController < ApplicationController
     end
   end
 
+  def show_own_games
+    @quizzes=Quizzes.find_all_by_category(params[:category])
+    render :template => 'quizzes/own_game/show'
+  end
+
   def own_game_constructor
     quiz = Quizzes.find(params[:id])
     # @questions = quiz.questions(:order)
@@ -41,6 +46,13 @@ class QuizzesController < ApplicationController
     end
     render template: 'quizzes/own_game/constructor', layout: false
   end
+
+  def destroy
+    Quizzes.find(params[:id]).destroy
+    redirect_to :back
+  end
+
+
   private
   def check_accessory
     quiz = Quizzes.find(:first, params[:id].to_i)

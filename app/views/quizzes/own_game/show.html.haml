@@ -1,0 +1,28 @@
+- content_for :page_title do
+  = "Просмотр викторин с категорией #{params[:category]}" 
+.games
+  %table
+    %thead
+      %tr
+        %th
+          Имя
+        %th
+          Категория
+        %th
+          Количество вопросов
+        %th
+          Действие
+    - @quizzes.each do |quiz|
+      %tr  
+        %td
+          = quiz.name
+        %td
+          = quiz.category
+        %td
+          = quiz.questions.count
+        %td
+          = link_to 'Играть', play_own_game_quizzes_path(quiz)
+          %br
+          = link_to 'Изменить', edit_quizzes_path(quiz)
+          %br
+          = link_to 'Удалить', quizzes_path(id: quiz.id), :confirm => 'Вы уверены?', :method => :delete
