@@ -54,7 +54,7 @@ class QuizzesController < ApplicationController
 
   def play_own_game
     @quiz = Quizzes.find(params[:id])
-    render :template => 'quizzes/own_game/play'
+    render :template => 'quizzes/own_game/play', :layout => 'play'
   end
 
   private

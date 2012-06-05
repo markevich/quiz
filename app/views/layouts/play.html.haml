@@ -1,0 +1,21 @@
+!!! 5
+%html
+  %head
+    %title 
+      Викторины
+    = stylesheet_link_tag "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+    .container
+      = flash_messages
+      .content
+        .left-panel{style: 'width:200px; visibility: hidden;'}
+          = render template: 'users/info'
+          .menu
+            
+        .middle-panel
+          .title
+            .text
+              = yield(:page_title)
+          = yield
