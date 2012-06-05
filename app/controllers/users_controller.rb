@@ -25,16 +25,17 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(login: params[:user][:login]).tap do |u|
-      u.password = params[:user][:password]
-      u.password_confirmation = params[:user][:password_confirmation]
+    @user = User.new(login: params[:user][:login]).tap do |u| #создаем экземпляр класса User
+      u.password = params[:user][:password] #задаем пароль
+      u.password_confirmation = params[:user][:password_confirmation] #задаем подтверждение пароля
     end
 
-    if @user.save
-      redirect_to quizzes_path, notice: 'Пользователь успешно создан.'
-      session[:user_id] = @user.id
+    if @user.save #пытаемся сохранить его в базе
+      #если удалось сохранить
+      redirect_to quizzes_path, notice: 'Пользователь успешно создан.' #показываем его викторины с сообщением
+      session[:user_id] = @user.id # сохраняем id пользователя в сессии
     else
-      render action: :new 
+      render action: :new #показываем страницу нового пользователя
     end
   end
 end

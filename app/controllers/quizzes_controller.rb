@@ -55,7 +55,7 @@ class QuizzesController < ApplicationController
 
   private
   def check_accessory
-    quiz = Quizzes.find(:first, params[:id].to_i)
+    quiz = Quizzes.find(params[:id])
     unless quiz.user_id == current_user.id
       redirect_to :status => 404 
       return false
