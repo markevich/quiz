@@ -1,7 +1,7 @@
 - @result.each_with_index do |(category, questions), index|
   - if index == 0
     .category
-      .name.empty
+      .name.empty.active
       .constructor-header
         .prices
           - questions.each do |question|

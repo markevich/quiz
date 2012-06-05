@@ -44,7 +44,7 @@ class QuizzesController < ApplicationController
     @result = @result.inject({}) do |result, hash|
       result.merge! hash[0] => hash[1].sort_by{|question| question.params[:price].to_i}
     end
-    render template: 'quizzes/own_game/constructor', layout: false
+    render template: "quizzes/own_game/#{params[:type]}", layout: false
   end
 
   def destroy
@@ -52,6 +52,10 @@ class QuizzesController < ApplicationController
     redirect_to :back
   end
 
+  def play_own_game
+    @quiz = Quizzes.find(params[:id])
+    render :template => 'quizzes/own_game/play'
+  end
 
   private
   def check_accessory

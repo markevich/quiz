@@ -1,0 +1,54 @@
+:javascript
+  $().ready(function(){
+    OwnGame.regenerate_grid();
+    OwnGame.create_teams();
+    $('.name').textfill({ maxFontPixels: 22 });
+  });
+- content_for :page_title do
+  = "Викторина \"#{@quiz.name}\"" 
+= hidden_field_tag 'quizzes[id]', @quiz.id
+.constructor
+  .counts
+    #counter-left.counter
+      Красные
+      .val
+        0
+    #counter-right.counter
+      Синие
+      .val
+        0
+  #header
+  .question
+    .qtext
+      Вопрос
+    = hidden_field_tag 'price', 0
+    .answers
+      %fieldset{style: 'left:0'}
+        %legend{style: 'color:red'}
+          Красные
+        %label.red
+          %input{type: :radio, name: :red, value: :hz, checked: :checked}
+          Не ответили
+        %br
+        %label
+          %input{type: :radio, name: :red, value: :y}
+          Правильно
+        %label
+          %input{type: :radio, name: :red, value: :n}
+          Ошиблись
+      %fieldset{style: 'right:0'}
+        %legend{style: 'color:blue'}
+          Синие
+        %label
+          %input{type: :radio, name: :blue, value: :hz, checked: :checked}
+          Не ответили
+        %br
+        %label
+          %input{type: :radio, name: :blue, value: :y}
+          Правильно
+        %label
+          %input{type: :radio, name: :blue, value: :n}
+          Ошиблись
+    .continue.button.green{:onclick => 'OwnGame.update_teams_score()'}
+      Продолжить
+  .questions

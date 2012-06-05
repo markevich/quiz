@@ -42,6 +42,12 @@ class QuestionsController < ApplicationController
     redirect_to edit_quizzes_path(id: question.quizzes_id)
   end
 
+  def get
+    question = Question.find params[:id]
+      
+    render json: question.to_json
+  end
+
   private
   def check_accessory
     question = Question.find(params[:id])

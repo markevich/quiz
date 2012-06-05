@@ -15,7 +15,7 @@ development:
   database: quiz_development
   pool: 5
   username: root
-  password: root
+  password:
   host: localhost
 
 # Warning: The database defined as "test" will be erased and

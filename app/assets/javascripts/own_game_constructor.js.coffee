@@ -7,7 +7,7 @@ class @OwnGameConstructor
     
 
   regenerate_grid= ->
-    $.post('/quizzes/own_game/constructor',{id: get_quiz_id()}, (constructor) ->
+    $.post('/quizzes/own_game/constructor',{id: get_quiz_id(), type: 'constructor'}, (constructor) ->
       $('.questions').html(constructor)
       add_plus_signs()
       $('.green.item').tooltip({effect: 'slide'})

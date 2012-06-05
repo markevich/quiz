@@ -1,0 +1,10 @@
+- @result.each_with_index do |(category, questions), index|
+  .category
+    .name
+      %span
+        = category
+    .trigger{:style => 'overflow:hidden'}
+      - questions.each do |question|
+        %a.item{id: question.id,class: question.has_text? ? 'green': 'gray',}
+          = question.params[:price]
+        
