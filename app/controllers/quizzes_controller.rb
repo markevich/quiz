@@ -57,8 +57,7 @@ class QuizzesController < ApplicationController
   def check_accessory
     quiz = Quizzes.find(params[:id])
     unless quiz.user_id == current_user.id
-      redirect_to :status => 404 
-      return false
+      raise ActionController::RoutingError.new('Not Found') 
     end
   end
 end
