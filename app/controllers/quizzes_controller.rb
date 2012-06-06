@@ -33,7 +33,7 @@ class QuizzesController < ApplicationController
   end
 
   def show_own_games
-    @quizzes=Quizzes.find_all_by_category(params[:category])
+    @quizzes=current_user.quizzes.find_all_by_category(params[:category])
     render :template => 'quizzes/own_game/show'
   end
 
