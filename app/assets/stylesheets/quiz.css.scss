@@ -78,6 +78,10 @@
   .name{
     width:200px;
     background: rgba(55,245,0,.2);
+    &:hover {
+      background: url('delete-name.png') no-repeat;
+      cursor:pointer;
+    }
     span{
       width:200px;
       height:60px;
@@ -87,9 +91,6 @@
   }
   .active{
     cursor:pointer;
-    &:hover {
-      background: url('delete-name.png') no-repeat;
-    }
   }
   .empty{
     background: transparent;

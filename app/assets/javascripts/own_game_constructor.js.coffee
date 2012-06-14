@@ -14,13 +14,24 @@ class @OwnGameConstructor
     )
 
   @delete_category=(name) ->
+    count = get_categories().length
+    if count == 1
+      alert('Невозможно удалить последнюю категорию.')
+      return
+    confirmed = confirm('Действительно удалить категорию '+ name + '?')
     $.post('/questions/own_game/delete_category',{quiz_id: get_quiz_id, category: name}, ->
       regenerate_grid()
-    )
+    ) if confirmed
+
   @delete_price=(name) ->
+    count = get_prices().length
+    if count == 1
+      alert('Невозможно удалить последнюю цену.')
+      return
+    confirmed = confirm('Действительно удалить цену '+ name + '?')
     $.post('/questions/own_game/delete_price',{quiz_id: get_quiz_id, price: name}, ->
       regenerate_grid()
-    )
+    ) if confirmed
     
 
   create_questions= (quiz_id, categories, prices) ->
