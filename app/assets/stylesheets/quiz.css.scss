@@ -4,6 +4,8 @@
     position: relative;
     overflow: hidden;
     height: 100%;
+    display: table-cell;
+    white-space:nowrap;
     .left-panel{
       float:left;
       .user-info{
