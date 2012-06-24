@@ -1,11 +1,13 @@
 .container{
+  .nowrapped{
+    display: table-cell;
+    white-space:nowrap;
+  }
   .content{
     clear: both;
     position: relative;
     overflow: hidden;
     height: 100%;
-    display: table-cell;
-    white-space:nowrap;
     .left-panel{
       float:left;
       .user-info{
@@ -61,8 +63,17 @@
 
 .questions{
   overflow: hidden;
-}
 
+}
+.play{
+  .category{
+    .name{
+      &:hover{
+        background: rgba(55, 245, 0, 0.2);
+      }
+    }
+  }
+}
 .category{
   width: 800px;
   overflow: hidden;

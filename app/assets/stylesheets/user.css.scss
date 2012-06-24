@@ -7,6 +7,7 @@
   width: 200px;
   height: 200px;
   padding: 15px 40px 0 0;
+  
   .or{
     padding-left: 100px;
     margin-bottom: 5px;
@@ -14,7 +15,6 @@
     font-style: italic;
   }
 }
-
 .lmheader{
   width: 300px;
   margin: 0 auto 30px auto;
@@ -48,6 +48,7 @@
 
 .login-form {
   margin: 0 auto;
+  white-space:normal;
   h1, span, input, label {
     margin:0;
     padding:0;
@@ -239,4 +240,5 @@
     margin: 0;
   }
 }
+
 

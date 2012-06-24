@@ -10,6 +10,6 @@
     .container
       = flash_messages
       = render :template => 'layouts/quiz_header' unless user_authorized?
-      .content
+      .blocked.content
         %div{:class => 'wrapper clearfix'}
           = yield

@@ -1,5 +1,5 @@
 # RVM bootstrap
-$:.unshift(File.expand_path("~/.rvm/lib"))
+# $:.unshift(File.expand_path("~/.rvm/lib"))
 
 set :application, "quiz"
 set :repository,  "git@github.com:EnOD/quiz.git"
