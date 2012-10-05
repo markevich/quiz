@@ -158,6 +158,8 @@ GEM
     ruby_core_source (0.1.5)
       archive-tar-minitar (>= 0.5.2)
     rubyzip (0.9.8)
+    rvm-capistrano (1.2.7)
+      capistrano (>= 2.0.0)
     sass (3.1.16)
     sass-rails (3.2.5)
       railties (~> 3.2.0)
@@ -209,6 +211,7 @@ DEPENDENCIES
   rails (= 3.2.3)
   rspec-rails
   ruby-debug19
+  rvm-capistrano
   sass-rails (~> 3.2.3)
   therubyracer
   uglifier (>= 1.0.3)
